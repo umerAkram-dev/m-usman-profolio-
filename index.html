@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Usman — Finance & Accounting Professional</title>
+<style>
+  :root{
+    --ink:#1a1f2b; --muted:#5b6472; --line:#e7e9ee; --bg:#ffffff;
+    --soft:#f6f7f9; --accent:#1f3864; --accent-soft:#eaf0fa;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:.02em}
+  .logo span{color:var(--accent)}
+  .navlinks{display:flex;gap:30px;font-size:.92rem;color:var(--muted)}
+  .navlinks a:hover{color:var(--accent)}
+  .navlinks a{transition:color .2s}
+  @media(max-width:720px){.navlinks{display:none}}
+
+  /* hero */
+  header{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+  header .eyebrow{margin-bottom:18px}
+  h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.05;font-weight:800;letter-spacing:-.02em}
+  h1 .accent{color:var(--accent)}
+  .lead{margin-top:22px;font-size:1.18rem;color:var(--muted);max-width:640px}
+  .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.95rem;color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:600}
+  .cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:8px;
+    font-weight:600;font-size:.95rem;transition:transform .15s,box-shadow .2s,background .2s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,56,100,.25)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* sections */
+  section{padding:72px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:42px}
+  .sec-head h2{font-size:1.9rem;font-weight:800;letter-spacing:-.01em;margin-top:8px}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{padding:26px 22px;background:var(--soft);border-radius:12px;border:1px solid var(--line)}
+  .stat .num{font-size:2.1rem;font-weight:800;color:var(--accent);line-height:1}
+  .stat .lbl{margin-top:8px;font-size:.9rem;color:var(--muted)}
+
+  .about p{font-size:1.08rem;color:#3a414e;max-width:760px}
+  .about p+p{margin-top:18px}
+
+  /* timeline */
+  .tl{position:relative;padding-left:30px}
+  .tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .job{position:relative;padding-bottom:38px}
+  .job:last-child{padding-bottom:0}
+  .job::before{content:"";position:absolute;left:-30px;top:6px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--accent)}
+  .job .role{font-size:1.18rem;font-weight:700}
+  .job .org{color:var(--accent);font-weight:600;margin-top:2px}
+  .job .when{font-size:.86rem;color:var(--muted);margin-top:3px;letter-spacing:.02em}
+  .job ul{margin-top:12px;padding-left:18px;color:#3a414e}
+  .job li{margin-bottom:7px}
+  .job li::marker{color:var(--accent)}
+
+  /* skills */
+  .skillgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:820px){.skillgrid{grid-template-columns:1fr}}
+  .card{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:26px}
+  .card h3{font-size:1.05rem;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{background:#fff;border:1px solid var(--line);color:#3a414e;font-size:.85rem;
+    padding:6px 12px;border-radius:20px}
+  .tag.hl{background:var(--accent-soft);border-color:var(--accent-soft);color:var(--accent);font-weight:600}
+
+  /* achievements */
+  .ach{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.ach{grid-template-columns:1fr}}
+  .ach .card{border-top:3px solid var(--accent)}
+  .ach h3{color:var(--accent);font-size:1.02rem}
+  .ach p{color:#3a414e;font-size:.96rem;margin-top:8px}
+
+  /* education */
+  .edu{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:720px){.edu{grid-template-columns:1fr}}
+  .edu .card .role{font-weight:700;font-size:1.08rem}
+  .edu .card .sub{color:var(--accent);font-weight:600;font-size:.92rem;margin-top:2px}
+  .edu .card p{color:#3a414e;font-size:.95rem;margin-top:10px}
+  .pill{display:inline-block;font-size:.74rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;
+    background:var(--accent-soft);color:var(--accent);padding:4px 10px;border-radius:6px;margin-top:12px}
+
+  /* contact */
+  .contact{text-align:center;border-bottom:none}
+  .contact h2{font-size:2.2rem;font-weight:800}
+  .contact p{color:var(--muted);margin:14px auto 30px;max-width:520px}
+  .contact .links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+
+  footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem;background:var(--soft)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Muhammad <span>Usman</span></div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Chartered Accountant Finalist · ICAP</div>
+    <h1>Muhammad Usman<br><span class="accent">Finance &amp; Accounting Professional</span></h1>
+    <p class="lead">CA Finalist with 3.5+ years across financial reporting, reconciliations, taxation, and audit — turning complex financial data into accurate, reliable, and automated reporting.</p>
+    <div class="meta">
+      <span>📍 <b>Lahore, Pakistan</b></span>
+      <span>✉ <b>m.usmanaslam891@gmail.com</b></span>
+      <span>☎ <b>+92-316-483-2097</b></span>
+    </div>
+    <div class="cta">
+      <a class="btn btn-primary" href="Muhammad_Usman_CV.pdf" target="_blank">Download CV (PDF)</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/muhammadusman891" target="_blank">LinkedIn Profile</a>
+    </div>
+  </div>
+</header>
+
+<section id="stats">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="num">3.5+</div><div class="lbl">Years of finance &amp; audit experience</div></div>
+      <div class="stat reveal"><div class="num">16/20</div><div class="lbl">ICAP CA exams cleared</div></div>
+      <div class="stat reveal"><div class="num">4</div><div class="lbl">Organizations &amp; audit firms</div></div>
+      <div class="stat reveal"><div class="num">2</div><div class="lbl">Listed-company audits</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap reveal">
+    <div class="sec-head"><div class="eyebrow">Profile</div><h2>About</h2></div>
+    <p>I am a Chartered Accountant Finalist (ICAP) with over three and a half years of progressive experience in finance and accounting. My work spans financial reporting, account reconciliations, taxation, budgeting, and both internal and external audit — gained across a large public-sector energy organization and statutory audits of listed companies.</p>
+    <p>I work fluently in Oracle ERP and advanced Excel, and I have a track record of strengthening internal controls, improving reporting accuracy, and automating manual processes. I am currently completing my CA qualification alongside the Google Data Analytics Professional Certificate, deepening my ability to turn financial data into clear, data-driven decisions.</p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Career</div><h2>Professional Experience</h2></div>
+    <div class="tl">
+
+      <div class="job reveal">
+        <div class="role">CA Trainee / Associate — Finance, Accounts, Revenue, Tax &amp; Internal Audit</div>
+        <div class="org">Sui Northern Gas Pipelines Limited (SNGPL)</div>
+        <div class="when">Mar 2023 – Present · Lahore, Pakistan</div>
+        <ul>
+          <li>Designed and implemented the Revenue Department's first automated Excel-based reconciliation and reporting solution, generating approval notes, payment vouchers, summaries, and Oracle balance reconciliations from a single invoice input.</li>
+          <li>Selected as one of five members of a CFO-established Regional Audit Committee, contributing to fraud risk assessments, investigations, and internal control reviews across regional and sub-regional offices.</li>
+          <li>Performed Oracle ERP reconciliations, prepared consolidated bank reconciliations and EOBI summaries, and supported annual revenue and capital budget preparation.</li>
+          <li>Assisted with Sales Tax returns, input tax claims, year-end accruals, and external audit schedules and queries.</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="role">Audit Associate</div>
+        <div class="org">Qadeer and Company, Chartered Accountants</div>
+        <div class="when">Jul 2022 – Dec 2022 · Lahore, Pakistan</div>
+        <ul>
+          <li>Member of the external audit team for the statutory annual audit of Ghazi Fabrics International Limited (listed company).</li>
+          <li>Performed audit procedures across assets, liabilities, income, and expenses, including substantive testing, analytical reviews, vouching, and reconciliations.</li>
+          <li>Prepared audit working papers, documented findings, and evaluated internal controls and regulatory compliance.</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="role">Audit Associate</div>
+        <div class="org">ShineWing Hameed Chaudhri &amp; Co., Chartered Accountants</div>
+        <div class="when">Jan 2022 – Jun 2022 · Lahore, Pakistan</div>
+        <ul>
+          <li>Member of the external audit team for the statutory annual audit of Sapphire Textile Mills Limited (listed company).</li>
+          <li>Led the audit of expense-related areas through substantive testing, analytical review, vouching, and verification.</li>
+          <li>Evaluated internal controls over expenditure cycles and identified control deficiencies for senior review.</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="role">Accounts Assistant</div>
+        <div class="org">Papa John's International — Pakistan</div>
+        <div class="when">Aug 2021 – Dec 2021 · Lahore, Pakistan</div>
+        <ul>
+          <li>Maintained sales transaction data and prepared bank reconciliation statements.</li>
+          <li>Supported the Senior Accountant and CFO with daily accounting, financial reporting, and supporting schedules.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Capabilities</div><h2>Skills &amp; Expertise</h2></div>
+    <div class="skillgrid">
+      <div class="card reveal">
+        <h3>Finance &amp; Accounting</h3>
+        <div class="tags">
+          <span class="tag hl">Financial Reporting</span>
+          <span class="tag hl">Reconciliations</span>
+          <span class="tag">Budgeting &amp; Forecasting</span>
+          <span class="tag">Financial Modeling</span>
+          <span class="tag">Year-End Accruals</span>
+          <span class="tag">Sales Tax</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Audit &amp; Controls</h3>
+        <div class="tags">
+          <span class="tag hl">Internal Controls</span>
+          <span class="tag">Substantive Testing</span>
+          <span class="tag">Analytical Review</span>
+          <span class="tag">Fraud Risk Assessment</span>
+          <span class="tag">ISA / ISAE / ISRE</span>
+          <span class="tag">IFRS &amp; IAS</span>
+        </div>
+      </div>
+      <div class="card reveal">
+        <h3>Tools &amp; Data</h3>
+        <div class="tags">
+          <span class="tag hl">Oracle ERP</span>
+          <span class="tag hl">Advanced Excel</span>
+          <span class="tag">Process Automation</span>
+          <span class="tag">Data Analytics</span>
+          <span class="tag">SQL</span>
+          <span class="tag">R</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Impact</div><h2>Key Achievements</h2></div>
+    <div class="ach">
+      <div class="card reveal">
+        <h3>Process Automation</h3>
+        <p>Built the Revenue Department's first automated reconciliation and reporting tool integrating Oracle ERP data — sharply reducing manual effort and turnaround time.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Internal Controls</h3>
+        <p>Chosen among five members of a CFO-established Regional Audit Committee driving fraud investigations and control reviews across multiple offices.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Listed-Company Audits</h3>
+        <p>Delivered audit procedures across substantially all financial statement areas for Ghazi Fabrics Intl. and the expenditure cycle for Sapphire Textile Mills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Qualifications</div><h2>Education &amp; Certifications</h2></div>
+    <div class="edu">
+      <div class="card reveal">
+        <div class="role">Chartered Accountancy (CA) — Finalist</div>
+        <div class="sub">Institute of Chartered Accountants of Pakistan (ICAP)</div>
+        <p>16 of 20 examinations cleared; currently completing the final stage of qualification.</p>
+        <span class="pill">In Progress</span>
+      </div>
+      <div class="card reveal">
+        <div class="role">Google Data Analytics Professional Certificate</div>
+        <div class="sub">Coursera · Google</div>
+        <p>Data analysis, visualization, SQL, spreadsheets, and R programming for data-driven decision-making.</p>
+        <span class="pill">In Progress</span>
+      </div>
+      <div class="card reveal">
+        <div class="role">Presentation &amp; Communication Skills (100 Hours)</div>
+        <div class="sub">ICAP</div>
+        <p>Communication, presentation techniques, and group discussion training.</p>
+        <span class="pill">Completed</span>
+      </div>
+      <div class="card reveal">
+        <div class="role">Professional Values, Ethics &amp; Attitudes</div>
+        <div class="sub">ICAP</div>
+        <p>Ethical decision-making in professional environments.</p>
+        <span class="pill">Completed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap reveal">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's work together</h2>
+    <p>Open to finance and accounting opportunities. Feel free to reach out — I'd be glad to connect.</p>
+    <div class="links">
+      <a class="btn btn-primary" href="mailto:m.usmanaslam891@gmail.com">Email Me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/muhammadusman891" target="_blank">LinkedIn</a>
+      <a class="btn btn-ghost" href="Muhammad_Usman_CV.pdf" target="_blank">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> Muhammad Usman · Chartered Accountant Finalist (ICAP) · Lahore, Pakistan
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
